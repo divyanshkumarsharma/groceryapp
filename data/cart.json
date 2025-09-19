@@ -1,0 +1,33 @@
+{
+  "user123": {
+    "items": [
+      {
+        "id": "cart_item_001",
+        "productId": "prod001",
+        "productName": "Premium Organic Honey",
+        "productImage": "https://example.com/honey.jpg",
+        "quantity": 2,
+        "unitPrice": 7.50,
+        "totalPrice": 15.00,
+        "currency": "KD",
+        "addedAt": "2024-01-15T10:30:00Z"
+      },
+      {
+        "id": "cart_item_002",
+        "productId": "prod002",
+        "productName": "Whole Wheat Bread",
+        "productImage": "https://example.com/bread.jpg",
+        "quantity": 1,
+        "unitPrice": 8.00,
+        "totalPrice": 8.00,
+        "currency": "KD",
+        "addedAt": "2024-01-15T10:35:00Z"
+      }
+    ],
+    "subtotal": 23.00,
+    "deliveryFee": 1.00,
+    "total": 24.00,
+    "currency": "KD",
+    "lastUpdated": "2024-01-15T10:35:00Z"
+  }
+}

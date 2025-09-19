@@ -1,0 +1,44 @@
+[
+  {
+    "id": "user123",
+    "name": "Mohammed Ali Al-Ahmed",
+    "email": "mohammed@example.com",
+    "phone": "+96512345678",
+    "address": {
+      "id": "addr1",
+      "label": "Home",
+      "addressLine1": "Mohammed Ali Al-Ahmed",
+      "addressLine2": "8228 Ima...",
+      "city": "Kuwait City",
+      "country": "Kuwait",
+      "coordinates": {
+        "latitude": 29.3759,
+        "longitude": 47.9774
+      }
+    },
+    "favorites": {
+      "stores": ["store001", "store003"],
+      "products": ["prod001", "prod002"]
+    },
+    "notifications": [
+      {
+        "id": "notif001",
+        "title": "Order Update",
+        "message": "Your order #12345 is on its way!",
+        "timestamp": "2024-01-15T10:00:00Z",
+        "read": false,
+        "type": "order_update"
+      },
+      {
+        "id": "notif002",
+        "title": "Special Offer",
+        "message": "20% off on all dairy products today!",
+        "timestamp": "2024-01-15T09:30:00Z",
+        "read": true,
+        "type": "promotion"
+      }
+    ],
+    "createdAt": "2024-01-01T00:00:00Z",
+    "updatedAt": "2024-01-15T10:00:00Z"
+  }
+]

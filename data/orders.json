@@ -1,0 +1,75 @@
+[
+  {
+    "id": "order12345",
+    "userId": "user123",
+    "orderNumber": "ORD-2024-001",
+    "status": "delivered",
+    "orderDate": "2024-01-10T14:30:00Z",
+    "deliveryDate": "2024-01-10T16:45:00Z",
+    "items": [
+      {
+        "productId": "prod001",
+        "productName": "Premium Organic Honey",
+        "quantity": 1,
+        "unitPrice": 7.50,
+        "totalPrice": 7.50
+      },
+      {
+        "productId": "prod004",
+        "productName": "Fresh Milk",
+        "quantity": 2,
+        "unitPrice": 2.50,
+        "totalPrice": 5.00
+      }
+    ],
+    "subtotal": 12.50,
+    "deliveryFee": 1.00,
+    "total": 13.50,
+    "currency": "KD",
+    "deliveryAddress": {
+      "label": "Home",
+      "addressLine1": "Mohammed Ali Al-Ahmed",
+      "addressLine2": "8228 Ima...",
+      "city": "Kuwait City",
+      "country": "Kuwait"
+    },
+    "paymentMethod": "Credit Card",
+    "paymentStatus": "paid",
+    "trackingNumber": "TRK123456789",
+    "estimatedDelivery": "2024-01-10T16:30:00Z",
+    "actualDelivery": "2024-01-10T16:45:00Z"
+  },
+  {
+    "id": "order12346",
+    "userId": "user123",
+    "orderNumber": "ORD-2024-002",
+    "status": "in_transit",
+    "orderDate": "2024-01-15T09:15:00Z",
+    "deliveryDate": null,
+    "items": [
+      {
+        "productId": "prod002",
+        "productName": "Whole Wheat Bread",
+        "quantity": 2,
+        "unitPrice": 8.00,
+        "totalPrice": 16.00
+      }
+    ],
+    "subtotal": 16.00,
+    "deliveryFee": 1.00,
+    "total": 17.00,
+    "currency": "KD",
+    "deliveryAddress": {
+      "label": "Home",
+      "addressLine1": "Mohammed Ali Al-Ahmed",
+      "addressLine2": "8228 Ima...",
+      "city": "Kuwait City",
+      "country": "Kuwait"
+    },
+    "paymentMethod": "Credit Card",
+    "paymentStatus": "paid",
+    "trackingNumber": "TRK123456790",
+    "estimatedDelivery": "2024-01-15T11:30:00Z",
+    "actualDelivery": null
+  }
+]

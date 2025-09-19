@@ -1,0 +1,83 @@
+[
+  {
+    "id": "store001",
+    "name": "SPAR Supermarkets",
+    "type": "Supermarket",
+    "logoUrl": "https://example.com/spar_logo.png",
+    "rating": 4.2,
+    "reviewCount": "2K+",
+    "distanceKm": 2.5,
+    "deliveryTimeMins": "15-20",
+    "deliveryFeeKd": 1.00,
+    "isFavorite": false,
+    "promotions": [
+      {
+        "type": "free_delivery",
+        "description": "Free delivery (Spend 20 KD)",
+        "minSpendKd": 20.00
+      },
+      {
+        "type": "percentage_off",
+        "description": "45% off on selected items",
+        "discountPercentage": 45,
+        "appliesTo": "selected_items"
+      }
+    ],
+    "address": "Kuwait City, Kuwait",
+    "phone": "+96512345678",
+    "isOpen": true,
+    "operatingHours": "24/7"
+  },
+  {
+    "id": "store002",
+    "name": "Sun Supermarket",
+    "type": "Supermarket",
+    "logoUrl": "https://example.com/sun_logo.png",
+    "rating": 4.0,
+    "reviewCount": "1.4K+",
+    "distanceKm": 1.5,
+    "deliveryTimeMins": "25-30",
+    "deliveryFeeKd": 2.00,
+    "isFavorite": false,
+    "promotions": [
+      {
+        "type": "free_delivery",
+        "description": "Free delivery (Spend 20 KD)",
+        "minSpendKd": 20.00
+      }
+    ],
+    "address": "Kuwait City, Kuwait",
+    "phone": "+96512345679",
+    "isOpen": true,
+    "operatingHours": "6:00 AM - 12:00 AM"
+  },
+  {
+    "id": "store003",
+    "name": "Al Maha Supermarket",
+    "type": "Grocery Store",
+    "logoUrl": "https://example.com/danube_logo.png",
+    "rating": 4.3,
+    "reviewCount": "2K+",
+    "distanceKm": 2.5,
+    "deliveryTimeMins": "15-20",
+    "deliveryFeeKd": 1.00,
+    "isFavorite": true,
+    "promotions": [
+      {
+        "type": "free_delivery",
+        "description": "Free delivery (Spend 20 KD)",
+        "minSpendKd": 20.00
+      },
+      {
+        "type": "percentage_off",
+        "description": "45% off on selected items",
+        "discountPercentage": 45,
+        "appliesTo": "selected_items"
+      }
+    ],
+    "address": "Kuwait City, Kuwait",
+    "phone": "+96512345680",
+    "isOpen": true,
+    "operatingHours": "7:00 AM - 11:00 PM"
+  }
+]

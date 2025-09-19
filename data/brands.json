@@ -1,0 +1,90 @@
+[
+  {
+    "id": "brand001",
+    "name": "Almarai",
+    "logoUrl": "https://example.com/almarai_logo.png",
+    "description": "Leading dairy and food company",
+    "category": "Dairy",
+    "isLoved": true,
+    "productCount": 45,
+    "rating": 4.3,
+    "actionLink": "/brands/almarai"
+  },
+  {
+    "id": "brand002",
+    "name": "AlSafi DANONE",
+    "logoUrl": "https://example.com/alsafi_logo.png",
+    "description": "Fresh dairy products and beverages",
+    "category": "Dairy",
+    "isLoved": true,
+    "productCount": 32,
+    "rating": 4.4,
+    "actionLink": "/brands/alsafi-danone"
+  },
+  {
+    "id": "brand003",
+    "name": "TANMIAH",
+    "logoUrl": "https://example.com/tanmiah_logo.png",
+    "description": "Fresh poultry and meat products",
+    "category": "Meat",
+    "isLoved": true,
+    "productCount": 28,
+    "rating": 4.2,
+    "actionLink": "/brands/tanmiah"
+  },
+  {
+    "id": "brand004",
+    "name": "Mazola",
+    "logoUrl": "https://example.com/mazola_logo.png",
+    "description": "Cooking oils and condiments since 1911",
+    "category": "Pantry",
+    "isLoved": true,
+    "productCount": 15,
+    "rating": 4.1,
+    "actionLink": "/brands/mazola"
+  },
+  {
+    "id": "brand005",
+    "name": "Mayar",
+    "logoUrl": "https://example.com/mayar_logo.png",
+    "description": "Premium rice and grains",
+    "category": "Pantry",
+    "isLoved": true,
+    "productCount": 22,
+    "rating": 4.0,
+    "actionLink": "/brands/mayar"
+  },
+  {
+    "id": "brand006",
+    "name": "Baja",
+    "logoUrl": "https://example.com/baja_logo.png",
+    "description": "Traditional Arabic foods",
+    "category": "Pantry",
+    "isLoved": true,
+    "productCount": 18,
+    "rating": 4.2,
+    "actionLink": "/brands/baja"
+  },
+  {
+    "id": "brand007",
+    "name": "Aani & Dani",
+    "logoUrl": "https://example.com/aani_dani_logo.png",
+    "description": "Chocolatier since 1998",
+    "category": "Confectionery",
+    "isLoved": true,
+    "productCount": 35,
+    "rating": 4.5,
+    "actionLink": "/brands/aani-dani"
+  },
+  {
+    "id": "brand008",
+    "name": "Nadec",
+    "logoUrl": "https://example.com/nadec_logo.png",
+    "description": "Fresh dairy and juice products",
+    "category": "Dairy",
+    "isLoved": true,
+    "productCount": 40,
+    "rating": 4.3,
+    "actionLink": "/brands/nadec"
+  }
+]
