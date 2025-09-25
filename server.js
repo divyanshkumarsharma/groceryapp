@@ -16,6 +16,13 @@ const offerRoutes = require('./routes/offers');
 const brandRoutes = require('./routes/brands');
 const cartRoutes = require('./routes/cart');
 const orderRoutes = require('./routes/orders');
+const configRoutes = require('./routes/config');
+const categoryRoutes = require('./routes/categories');
+const bannerRoutes = require('./routes/banners');
+const campaignRoutes = require('./routes/campaigns');
+const itemRoutes = require('./routes/items');
+const moduleRoutes = require('./routes/modules');
+const landingRoutes = require('./routes/landing');
 
 const app = express();
 
@@ -121,6 +128,18 @@ app.use('/api/offers', offerRoutes);
 app.use('/api/brands', brandRoutes);
 app.use('/api/cart', cartRoutes);
 app.use('/api/orders', orderRoutes);
+
+// New v1 API routes
+app.use('/api/v1/config', configRoutes);
+app.use('/api/v1/stores', storeRoutes);
+app.use('/api/v1/categories', categoryRoutes);
+app.use('/api/v1/banners', bannerRoutes);
+app.use('/api/v1/campaigns', campaignRoutes);
+app.use('/api/v1/items', itemRoutes);
+app.use('/api/v1/offers', offerRoutes);
+app.use('/api/v1/customer', userRoutes);
+app.use('/api/v1/module', moduleRoutes);
+app.use('/api/v1', landingRoutes);
 
 // Root endpoint
 app.get('/', (req, res) => {
