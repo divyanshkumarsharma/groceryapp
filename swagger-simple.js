@@ -17,6 +17,10 @@ const swaggerDefinition = {
     {
       url: 'http://localhost:3000/api',
       description: 'Development server'
+    },
+    {
+      url: 'http://localhost:3000/api/v1',
+      description: 'Development server v1 API'
     }
   ],
   components: {
@@ -551,6 +555,502 @@ const swaggerDefinition = {
           },
           '401': {
             description: 'Unauthorized'
+          }
+        }
+      }
+    },
+    // New v1 API endpoints
+    '/v1/config': {
+      get: {
+        tags: ['Configuration'],
+        summary: 'Get App Configuration',
+        description: 'Returns app configuration including default location and app details',
+        responses: {
+          '200': {
+            description: 'Configuration retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    '/v1/config/get-zone-id': {
+      get: {
+        tags: ['Configuration'],
+        summary: 'Get Zone Information',
+        description: 'Validates if location is in service area and returns zone details',
+        parameters: [
+          {
+            name: 'latitude',
+            in: 'header',
+            required: true,
+            description: 'Latitude coordinate',
+            schema: { type: 'string', example: '29.9727388' }
+          },
+          {
+            name: 'longitude',
+            in: 'header',
+            required: true,
+            description: 'Longitude coordinate',
+            schema: { type: 'string', example: '31.2360419' }
+          }
+        ],
+        responses: {
+          '200': {
+            description: 'Zone information retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    '/v1/stores/get-stores': {
+      get: {
+        tags: ['Stores'],
+        summary: 'Get Stores with Filtering',
+        description: 'Returns stores with optional filtering by search, type, and open status',
+        parameters: [
+          {
+            name: 'search',
+            in: 'query',
+            description: 'Search term for store name or type',
+            schema: { type: 'string' }
+          },
+          {
+            name: 'type',
+            in: 'query',
+            description: 'Filter by store type',
+            schema: { type: 'string' }
+          },
+          {
+            name: 'isOpen',
+            in: 'query',
+            description: 'Filter by open status (true/false)',
+            schema: { type: 'string' }
+          },
+          {
+            name: 'offset',
+            in: 'query',
+            description: 'Number of records to skip',
+            schema: { type: 'integer', default: 0 }
+          },
+          {
+            name: 'limit',
+            in: 'query',
+            description: 'Number of records to return',
+            schema: { type: 'integer', default: 10 }
+          }
+        ],
+        responses: {
+          '200': {
+            description: 'Stores retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    '/v1/stores/popular': {
+      get: {
+        tags: ['Stores'],
+        summary: 'Get Popular Stores',
+        description: 'Returns stores sorted by popularity (rating and review count)',
+        responses: {
+          '200': {
+            description: 'Popular stores retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    '/v1/stores/latest': {
+      get: {
+        tags: ['Stores'],
+        summary: 'Get Latest Stores',
+        description: 'Returns newest stores added to the platform',
+        responses: {
+          '200': {
+            description: 'Latest stores retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    '/v1/stores/top-offer-near-me': {
+      get: {
+        tags: ['Stores'],
+        summary: 'Get Stores with Top Offers',
+        description: 'Returns stores with best promotional offers',
+        responses: {
+          '200': {
+            description: 'Top offer stores retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    '/v1/categories': {
+      get: {
+        tags: ['Categories'],
+        summary: 'Get All Categories',
+        description: 'Returns all service categories (Grocery, Pharmacy, Shop, Food, Parcel)',
+        responses: {
+          '200': {
+            description: 'Categories retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    '/v1/categories/popular': {
+      get: {
+        tags: ['Categories'],
+        summary: 'Get Popular Categories',
+        description: 'Returns most popular categories based on usage',
+        responses: {
+          '200': {
+            description: 'Popular categories retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    '/v1/banners': {
+      get: {
+        tags: ['Banners'],
+        summary: 'Get Promotional Banners',
+        description: 'Returns promotional banners for the home screen',
+        responses: {
+          '200': {
+            description: 'Banners retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    '/v1/other-banners': {
+      get: {
+        tags: ['Banners'],
+        summary: 'Get Promotional Content Banners',
+        description: 'Returns additional promotional content banners',
+        responses: {
+          '200': {
+            description: 'Promotional banners retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    '/v1/campaigns/basic': {
+      get: {
+        tags: ['Campaigns'],
+        summary: 'Get Basic Campaigns',
+        description: 'Returns basic promotional campaigns',
+        responses: {
+          '200': {
+            description: 'Basic campaigns retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    '/v1/items/popular': {
+      get: {
+        tags: ['Items'],
+        summary: 'Get Popular Items',
+        description: 'Returns most popular items based on sales and ratings',
+        responses: {
+          '200': {
+            description: 'Popular items retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    '/v1/items/latest': {
+      get: {
+        tags: ['Items'],
+        summary: 'Get Latest Items',
+        description: 'Returns newest items added to the platform',
+        responses: {
+          '200': {
+            description: 'Latest items retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    '/v1/items/most-reviewed': {
+      get: {
+        tags: ['Items'],
+        summary: 'Get Most Reviewed Items',
+        description: 'Returns items with the highest number of reviews',
+        responses: {
+          '200': {
+            description: 'Most reviewed items retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    '/v1/items/recommended': {
+      get: {
+        tags: ['Items'],
+        summary: 'Get Recommended Items',
+        description: 'Returns personalized recommended items for the user',
+        security: [{ bearerAuth: [] }],
+        responses: {
+          '200': {
+            description: 'Recommended items retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          },
+          '401': {
+            description: 'Unauthorized - Authentication required'
+          }
+        }
+      }
+    },
+    '/v1/items/discounted': {
+      get: {
+        tags: ['Items'],
+        summary: 'Get Discounted Items',
+        description: 'Returns items with discounts and special offers',
+        responses: {
+          '200': {
+            description: 'Discounted items retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    '/v1/coupon/list': {
+      get: {
+        tags: ['Coupons'],
+        summary: 'Get Available Coupons',
+        description: 'Returns available coupons for the authenticated user',
+        security: [{ bearerAuth: [] }],
+        responses: {
+          '200': {
+            description: 'Coupons retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          },
+          '401': {
+            description: 'Unauthorized - Authentication required'
+          }
+        }
+      }
+    },
+    '/v1/customer/info': {
+      get: {
+        tags: ['Customer'],
+        summary: 'Get User Information',
+        description: 'Returns user profile information including wallet balance',
+        security: [{ bearerAuth: [] }],
+        responses: {
+          '200': {
+            description: 'User information retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          },
+          '401': {
+            description: 'Unauthorized - Authentication required'
+          },
+          '404': {
+            description: 'User not found'
+          }
+        }
+      }
+    },
+    '/v1/customer/notifications': {
+      get: {
+        tags: ['Customer'],
+        summary: 'Get User Notifications',
+        description: 'Returns user notifications with proper formatting',
+        security: [{ bearerAuth: [] }],
+        responses: {
+          '200': {
+            description: 'Notifications retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          },
+          '401': {
+            description: 'Unauthorized - Authentication required'
+          },
+          '404': {
+            description: 'User not found'
+          }
+        }
+      }
+    },
+    '/v1/customer/address/list': {
+      get: {
+        tags: ['Customer'],
+        summary: 'Get User Address List',
+        description: 'Returns list of user saved addresses',
+        security: [{ bearerAuth: [] }],
+        responses: {
+          '200': {
+            description: 'Address list retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          },
+          '401': {
+            description: 'Unauthorized - Authentication required'
+          },
+          '404': {
+            description: 'User not found'
+          }
+        }
+      }
+    },
+    '/v1/module': {
+      get: {
+        tags: ['Modules'],
+        summary: 'Get Available Modules',
+        description: 'Returns available service modules',
+        responses: {
+          '200': {
+            description: 'Modules retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    '/v1/flutter-landing-page': {
+      get: {
+        tags: ['Landing'],
+        summary: 'Get Landing Page Data',
+        description: 'Returns landing page content and features',
+        responses: {
+          '200': {
+            description: 'Landing page data retrieved successfully',
+            content: {
+              'application/json': {
+                schema: {
+                  $ref: '#/components/schemas/ApiResponse'
+                }
+              }
+            }
           }
         }
       }
