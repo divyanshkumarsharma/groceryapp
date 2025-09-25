@@ -19,16 +19,12 @@ const orderRoutes = require('./routes/orders');
 
 const app = express();
 
-// Security middleware
+// Security middleware - Relaxed for API testing
 app.use(helmet({
-  contentSecurityPolicy: {
-    directives: {
-      defaultSrc: ["'self'"],
-      styleSrc: ["'self'", "'unsafe-inline'"],
-      scriptSrc: ["'self'"],
-      imgSrc: ["'self'", "data:", "https:"]
-    }
-  }
+  contentSecurityPolicy: false, // Disable CSP for Swagger UI
+  crossOriginOpenerPolicy: false, // Disable COOP for HTTP
+  crossOriginEmbedderPolicy: false, // Disable COEP for HTTP
+  crossOriginResourcePolicy: { policy: "cross-origin" } // Allow cross-origin resources
 }));
 
 // CORS configuration - Simplified for API testing and Swagger UI
@@ -67,6 +63,12 @@ app.use(express.urlencoded({ extended: true, limit: '10mb' }));
 // Logging middleware
 app.use(morgan('combined'));
 
+// Serve Swagger JSON
+app.get('/api-docs/swagger.json', (req, res) => {
+  res.setHeader('Content-Type', 'application/json');
+  res.send(swaggerSpecs);
+});
+
 // Swagger documentation
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs, {
   explorer: true,
@@ -75,7 +77,9 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpecs, {
   swaggerOptions: {
     persistAuthorization: true,
     displayRequestDuration: true,
-    tryItOutEnabled: true
+    tryItOutEnabled: true,
+    validatorUrl: null, // Disable online validator
+    supportedSubmitMethods: ['get', 'post', 'put', 'delete', 'patch']
   }
 }));
 
